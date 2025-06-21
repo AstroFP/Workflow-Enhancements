@@ -1,6 +1,5 @@
 @echo off
 setlocal enabledelayedexpansion
-@REM chcp 65001 >NUL
 
 set scriptPath=%cd%\bin
 
