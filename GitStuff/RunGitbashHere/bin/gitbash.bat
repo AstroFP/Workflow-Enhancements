@@ -4,7 +4,6 @@ setlocal enabledelayedexpansion
 set "originalPath=%CD%"
 
 for /f "delims=" %%G in ('where git.exe') do (
-
    for %%A in ("%%G") do (
       set gitPath=%%~dpA
    )  
