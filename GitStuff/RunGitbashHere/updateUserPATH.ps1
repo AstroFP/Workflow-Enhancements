@@ -17,7 +17,7 @@ Function Set-PATHVariable {
     if ($checkPATH -eq $newPATH) {
         Write-Host "====SUCCESS===="
     } else {
-        Write-Host "FAILED"
+        Write-Host "====FAILED===="
     }
 }
 
