@@ -20,14 +20,8 @@ for /f "usebackq skip=2 delims=" %%j in (`
 for /f "tokens=2*" %%a in ("!rawLine!") do set userPath=%%b
 
 REM make a backup of Systempath and UserPath in case something goes wrong
-REM note: using powershell for correct UTF-8 encoding
-powershell -NoProfile -Command ^
-    "Add-Content -Encoding UTF8 backupPath.txt '----------';" ^
-    "Add-Content -Encoding UTF8 backupPath.txt '%date%';" ^
-    "Add-Content -Encoding UTF8 backupPath.txt 'SystemPath:';" ^
-    "Add-Content -Encoding UTF8 backupPath.txt \"!systemPath!\";" ^
-    "Add-Content -Encoding UTF8 backupPath.txt 'UserPath:';" ^
-    "Add-Content -Encoding UTF8 backupPath.txt \"!userPath!\""
+REM note: using powershell for correct UTF-8 encoding(i didnt wanna play with cmd anymore XD)
+powershell -NoProfile -ExecutionPolicy Bypass -File "logIntoBackup.ps1" -SystemPath "!systemPath!" -UserPath "!userPath!"
 
 echo %PATH% | find /I "%scriptPath%" > nul
 if errorlevel 1 (

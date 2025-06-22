@@ -9,7 +9,7 @@ Function Set-PATHVariable {
         $userPATH += ';'
     }
 
-    $newPATH = $userPATH + $NewVariable + ';'
+    $newPATH = $userPATH + $NewVariable 
     [System.Environment]::SetEnvironmentVariable('PATH',$newPATH,'User')
 
     # checking if the variable got changed correctly
@@ -18,6 +18,8 @@ Function Set-PATHVariable {
         Write-Host "====SUCCESS===="
     } else {
         Write-Host "====FAILED===="
+        Write-Host "Restoring the old PATH variable..."
+        [System.Environment]::SetEnvironmentVariable('PATH',$userPATH,'User')
     }
 }
 
