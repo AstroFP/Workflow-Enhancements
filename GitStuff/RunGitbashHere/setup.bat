@@ -34,7 +34,14 @@ if errorlevel 1 (
     echo variable path does not yet exist
     echo creating a PATH variable...
 
-    REM actuall adding path logic will go here
+    REM im done with cmd, from now on im doing everything in powershell XD
+    powershell -NoProfile -ExecutionPolicy Bypass -File "updateUserPATH.ps1" -NewVariable "%scriptPath%"
+
+    REM Current CMD isntance won't see updated PATH 
+    REM we're restarting to prevent a duplicate entry in PATH
+    echo EXITING IN 5 SECOND ...
+    timeout /t 5
+    exit
 ) else (
     echo variable path is already setup
 )
