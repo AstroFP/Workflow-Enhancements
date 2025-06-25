@@ -19,6 +19,18 @@ for /f "usebackq skip=2 delims=" %%j in (`
 )
 for /f "tokens=2*" %%a in ("!rawLine!") do set userPath=%%b
 
+REM Removing \ at the end (if exists) to ensure the path variables will pass corectly in powershell script call
+if not "!systemPath!"=="!systemPath:~0,3!" (
+    if "!systemPath:~-1!"=="\" (
+        set "systemPath=!systemPath:~0,-1!"
+    )
+)
+if not "!userPath!"=="!userPath:~0,3!" (
+    if "!userPath:~-1!"=="\" (
+        set "userPath=!userPath:~0,-1!"
+    )
+)
+
 REM make a backup of Systempath and UserPath in case something goes wrong
 REM note: using powershell for correct UTF-8 encoding(i didnt wanna play with cmd anymore XD)
 powershell -NoProfile -ExecutionPolicy Bypass -File "logIntoBackup.ps1" -SystemPath "!systemPath!" -UserPath "!userPath!"
