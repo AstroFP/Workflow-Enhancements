@@ -11,11 +11,11 @@ After `setup.bat` is run, you can enter the command `gitbash` in any directory o
 
 ---
 
-However, if you don't trust my programming skills and you don't want to run my `setup.bat` that plays with the **PATH** variable  
-(I do create backups so what could go wrong 😅), you can achieve the same manually by:
+However, if you don't trust my programming skills and you don't want to run my `setup.bat` that plays with the **PATH** variable (I do create backups so what could go wrong 😅), 
+you can achieve the same manually by:
 
 ### 1. Create a `.bat` file with this command  
-*(Change `%path%` into your Git folder—wherever you installed Git on your computer):*
+*(Change `%path%` into your Git folder-wherever you installed Git on your computer):*
 
 start "" "%path%\git-bash.exe" --cd=%cd%
 
